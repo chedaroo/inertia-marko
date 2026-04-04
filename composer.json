@@ -19,13 +19,27 @@
       "Inertia\\": "src/"
     }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
   "require": {
     "php": "^8.5",
-    "marko/routing": "*"
+    "marko/routing": "*",
+    "marko/view": "^0.1.0"
+  },
+  "require-dev": {
+    "pestphp/pest": "^4.4"
   },
   "extra": {
     "marko": {
       "module": true
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
     }
   }
 }
