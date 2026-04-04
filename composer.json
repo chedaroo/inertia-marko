@@ -1,0 +1,31 @@
+{
+  "name": "chedaroo/inertia-marko",
+  "type": "marko-module",
+  "description": "The Marko adapter for Inertia.js.",
+  "keywords": [
+    "marko",
+    "inertia"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Richard Jesudason",
+      "email": "richard@jesudason.co.uk",
+      "homepage": "https://jesudason.co.uk"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Inertia\\": "src/"
+    }
+  },
+  "require": {
+    "php": "^8.5",
+    "marko/routing": "*"
+  },
+  "extra": {
+    "marko": {
+      "module": true
+    }
+  }
+}
