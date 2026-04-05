@@ -11,5 +11,6 @@ return [
     ],
     'singletons' => [
         Inertia::class,
+        InertiaInterface::class,
     ],
 ];
