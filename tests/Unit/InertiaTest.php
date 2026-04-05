@@ -4,22 +4,7 @@ declare(strict_types=1);
 
 use Inertia\Inertia;
 use Marko\Routing\Http\Request;
-use Marko\View\ViewInterface;
-use Marko\Routing\Http\Response;
 
-function fakeView(): ViewInterface
-{
-    return new class implements ViewInterface {
-        public function render(string $template, array $data = []): Response
-        {
-            return Response::html('');
-        }
-        public function renderToString(string $template, array $data = []): string
-        {
-            return '<h1>Fake View</h1>';
-        }
-    };
-}
 
 it('throws when no request has been set', function () {
     $inertia = new Inertia(fakeView());

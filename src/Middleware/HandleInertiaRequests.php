@@ -1,18 +1,18 @@
 <?php
 
-namespace Inertia;
+namespace Inertia\Middleware;
 
 use Marko\Routing\Http\Request;
 use Marko\Routing\Http\Response;
 use Marko\Routing\Middleware\MiddlewareInterface;
-use Inertia\Inertia;
+use Inertia\InertiaInterface;
 
 /** @package Inertia */
 class HandleInertiaRequests implements MiddlewareInterface
 {
-    protected Inertia $inertia;
+    protected InertiaInterface $inertia;
 
-    public function __construct(Inertia $inertia)
+    public function __construct(InertiaInterface $inertia)
     {
         $this->inertia = $inertia;
     }

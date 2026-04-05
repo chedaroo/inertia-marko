@@ -6,7 +6,7 @@ use Marko\Routing\Http\Response;
 use Marko\Routing\Http\Request;
 use Marko\View\ViewInterface;
 
-class Inertia
+class Inertia implements InertiaInterface
 {
     private ?Request $request = null;
 
