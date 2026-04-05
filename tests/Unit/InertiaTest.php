@@ -5,11 +5,10 @@ declare(strict_types=1);
 use Inertia\Inertia;
 use Marko\Routing\Http\Request;
 
-
 it('throws when no request has been set', function () {
     $inertia = new Inertia(fakeView());
     $inertia->render('Dashboard');
-})->throws(\RuntimeException::class);
+})->throws(RuntimeException::class);
 
 it('returns a json when the request has the X-Inertia header', function () {
     $request = new Request([

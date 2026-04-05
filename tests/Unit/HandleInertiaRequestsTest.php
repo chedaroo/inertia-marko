@@ -3,12 +3,12 @@
 declare(strict_types=1);
 
 use Inertia\Inertia;
+use Inertia\Middleware\HandleInertiaRequests;
 use Marko\Routing\Http\Request;
 use Marko\Routing\Http\Response;
-use Inertia\Middleware\HandleInertiaRequests;
 
 it('redirect 302 to 303 for mutating methods', function (string $method) {
-    $inertia = new Inertia(fakeView());    
+    $inertia = new Inertia(fakeView());
     $middleware = new HandleInertiaRequests($inertia);
 
     $request = new Request([
@@ -16,7 +16,7 @@ it('redirect 302 to 303 for mutating methods', function (string $method) {
         'REQUEST_URI' => '/test',
         'HTTP_X_INERTIA' => 'true',
     ]);
-    
+
     $response = $middleware->handle($request, $next = function () {
         return new Response(statusCode: 302);
     });
@@ -24,8 +24,8 @@ it('redirect 302 to 303 for mutating methods', function (string $method) {
     expect($response->statusCode())->toBe(303);
 })->with(['PUT', 'PATCH', 'DELETE']);
 
-it ('does not redirect 302 to 303 for GET requests', function () {
-    $inertia = new Inertia(fakeView());    
+it('does not redirect 302 to 303 for GET requests', function () {
+    $inertia = new Inertia(fakeView());
     $middleware = new HandleInertiaRequests($inertia);
 
     $request = new Request([
@@ -33,7 +33,7 @@ it ('does not redirect 302 to 303 for GET requests', function () {
         'REQUEST_URI' => '/test',
         'HTTP_X_INERTIA' => 'true',
     ]);
-    
+
     $response = $middleware->handle($request, $next = function () {
         return new Response(statusCode: 302);
     });
@@ -42,7 +42,7 @@ it ('does not redirect 302 to 303 for GET requests', function () {
 });
 
 it('adds the Vary header to the response', function () {
-    $inertia = new Inertia(fakeView());    
+    $inertia = new Inertia(fakeView());
     $middleware = new HandleInertiaRequests($inertia);
 
     $request = new Request([
@@ -50,7 +50,7 @@ it('adds the Vary header to the response', function () {
         'REQUEST_URI' => '/test',
         'HTTP_X_INERTIA' => 'true',
     ]);
-    
+
     $response = $middleware->handle($request, $next = function () {
         return new Response(statusCode: 200);
     });

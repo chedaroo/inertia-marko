@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace Inertia;
 
-use Marko\Routing\Http\Response;
 use Marko\Routing\Http\Request;
+use Marko\Routing\Http\Response;
 use Marko\View\ViewInterface;
+use RuntimeException;
 
 class Inertia implements InertiaInterface
 {
@@ -49,10 +50,10 @@ class Inertia implements InertiaInterface
 
     public function render(string $component, array $props = []): Response
     {
-        
+
         if ($this->request === null) {
-            throw new \RuntimeException(
-                'No request set on Inertia service. Did you add the HandleInertiaRequests middleware?'
+            throw new RuntimeException(
+                'No request set on Inertia service. Did you add the HandleInertiaRequests middleware?',
             );
         }
 
@@ -64,7 +65,7 @@ class Inertia implements InertiaInterface
             'url' => $this->request->path(),
             'version' => $this->version ?? '',
         ];
-    
+
         if ($this->request->header('X-Inertia') === 'true') {
 
             return new Response(
@@ -78,9 +79,10 @@ class Inertia implements InertiaInterface
             );
         }
 
-        return Response::html($this->view->renderToString($this->rootView, [
+        return Response::html(
+            $this->view->renderToString($this->rootView, [
                 'page' => json_encode($data, JSON_THROW_ON_ERROR | JSON_UNESCAPED_UNICODE),
-            ])
+            ]),
         );
     }
 }
