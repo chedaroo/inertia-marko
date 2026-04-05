@@ -57,3 +57,24 @@ it('adds the Vary header to the response', function () {
 
     expect($response->headers()['Vary'])->toBe('X-Inertia');
 });
+
+it('has a version mismatch', function () {
+    $inertia = new Inertia(fakeView());
+    $inertia->setVersion('1');
+
+    $middleware = new HandleInertiaRequests($inertia);
+
+    $request = new Request([
+        'REQUEST_METHOD' => 'GET',
+        'REQUEST_URI' => '/test',
+        'HTTP_X_INERTIA' => 'true',
+        'HTTP_X_INERTIA_VERSION' => '2',
+    ]);
+
+    $response = $middleware->handle($request, $next = function () {
+        return new Response(statusCode: 200);
+    });
+
+    expect($response->statusCode())->toBe(409);
+    expect($response->headers()['X-Inertia-Location'])->toBe('/test');
+});

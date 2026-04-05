@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Inertia;
 
 use Marko\Routing\Http\Response;
@@ -19,6 +21,11 @@ class Inertia implements InertiaInterface
     public function __construct(
         private readonly ViewInterface $view,
     ) {}
+
+    public function getVersion(): ?string
+    {
+        return $this->version;
+    }
 
     public function setRequest(Request $request): void
     {
