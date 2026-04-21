@@ -7,6 +7,11 @@
     "inertia"
   ],
   "license": "MIT",
+  "homepage": "https://github.com/chedaroo/inertia-marko",
+  "support": {
+    "issues": "https://github.com/chedaroo/inertia-marko/issues",
+    "source": "https://github.com/chedaroo/inertia-marko"
+  },
   "authors": [
     {
       "name": "Richard Jesudason",
