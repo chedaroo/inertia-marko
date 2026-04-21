@@ -30,7 +30,8 @@
   },
   "require-dev": {
     "pestphp/pest": "^4.4",
-    "friendsofphp/php-cs-fixer": "^3.94"
+    "friendsofphp/php-cs-fixer": "^3.94",
+    "phpstan/phpstan": "^2.1"
   },
   "extra": {
     "marko": {
@@ -46,6 +47,7 @@
     "format": "php-cs-fixer fix",
     "format:check": "php-cs-fixer fix --dry-run --diff",
     "test": "pest",
+    "analyse": "phpstan analyse",
     "post-install-cmd": "git config core.hooksPath .githooks"
   }
 }

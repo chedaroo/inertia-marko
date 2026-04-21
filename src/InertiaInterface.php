@@ -19,5 +19,6 @@ interface InertiaInterface
 
     public function share(string $key, mixed $value): void;
 
+    /** @param array<string, mixed> $props */
     public function render(string $component, array $props = []): Response;
 }

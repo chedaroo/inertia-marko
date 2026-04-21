@@ -15,6 +15,7 @@ class Inertia implements InertiaInterface
 
     private string $rootView = 'inertia-marko::app';
 
+    /** @var array<string, mixed> */
     private array $sharedProps = [];
 
     private ?string $version = null;
@@ -48,6 +49,7 @@ class Inertia implements InertiaInterface
         $this->sharedProps[$key] = $value;
     }
 
+    /** @param array<string, mixed> $props */
     public function render(string $component, array $props = []): Response
     {
 

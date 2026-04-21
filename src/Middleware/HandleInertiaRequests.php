@@ -23,6 +23,7 @@ class HandleInertiaRequests implements MiddlewareInterface
         return null;
     }
 
+    /** @return array<string, mixed> */
     public function share(Request $request): array
     {
         return [];

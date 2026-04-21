@@ -4,5 +4,8 @@ set -e
 echo "Running PHP CS Fixer..."
 ./vendor/bin/php-cs-fixer fix --diff
 
+echo "Running PHPStan..."
+./vendor/bin/phpstan analyse
+
 echo "Running tests..."
 ./vendor/bin/pest --no-coverage
