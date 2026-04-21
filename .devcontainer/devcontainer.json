@@ -7,7 +7,9 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "bmewburn.vscode-intelephense-client"
+        "Anthropic.claude-code",
+        "bmewburn.vscode-intelephense-client",
+        "vivaxy.vscode-conventional-commits"
       ]
     }
   }
