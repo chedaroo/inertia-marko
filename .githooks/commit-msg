@@ -1,0 +1,12 @@
+#!/bin/sh
+
+commit_msg=$(cat "$1")
+pattern='^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\(.+\))?(!)?: .+'
+
+if ! echo "$commit_msg" | grep -qE "$pattern"; then
+  echo "Error: commit message does not follow Conventional Commits format."
+  echo "Expected: <type>[optional scope][optional !]: <description>"
+  echo "Example:  feat(middleware): add version mismatch handling"
+  echo "Types:    feat, fix, docs, style, refactor, perf, test, build, ci, chore, revert"
+  exit 1
+fi
