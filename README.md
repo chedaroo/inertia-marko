@@ -39,6 +39,40 @@ class DashboardController
 }
 ```
 
+## Development
+
+### Devcontainer (recommended)
+
+Open the repo in VS Code and choose **Reopen in Container** — it will build a PHP 8.5 environment and run `composer install` automatically. This also works with GitHub Codespaces.
+
+### Local setup
+
+Requires PHP 8.5+ and [Composer](https://getcomposer.org).
+
+```bash
+git clone https://github.com/chedaroo/inertia-marko.git
+cd inertia-marko
+composer install
+```
+
+### Running tests
+
+```bash
+composer test
+```
+
+### Checking code style
+
+```bash
+composer format:check
+```
+
+To auto-fix:
+
+```bash
+composer format
+```
+
 ## License
 
 MIT
